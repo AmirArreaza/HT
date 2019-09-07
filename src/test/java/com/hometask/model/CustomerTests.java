@@ -21,6 +21,12 @@ public class CustomerTests {
     public void createCustomer(){
         Customer customer = new Customer();
 
+        customer.setFirstName("Amir");
+        customer.setLastName("Arreaza");
+        customer.setEmail("ajaarreazav@gmail.com");
+        customer.setMobile("07380189406");
+        customer.setAddress(defaultAddress);
+
         Assert.assertEquals("Arreaza", customer.getLastName());
         Assert.assertEquals("Amir", customer.getFirstName());
         Assert.assertEquals("ajaarreazav@gmail.com", customer.getEmail());
