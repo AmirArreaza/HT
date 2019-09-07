@@ -42,8 +42,22 @@ public class AccountTests {
     @Test
     public void createBusinessAccount(){
 
-        AccBusiness companyAccount = new AccBusiness("","", AccBusiness.businessType.COMPANY);
+        AccBusiness companyAccount = new AccBusiness("0123456789","00-21-30", AccBusiness.businessType.COMPANY);
         AccBusiness freelancerAccount = new AccBusiness("","", AccBusiness.businessType.FREELANCER);
+
+        companyAccount.setBankIdentifierCode("REVOGB21");
+        companyAccount.setBankAddress(defaultAddress);
+        companyAccount.setPricing(String.valueOf(AccBusiness.pricingCompany.ENTERPRISE));
+        companyAccount.setBalance(20.5611111);
+        companyAccount.setCurrency('£');
+
+        freelancerAccount.setAccountNumber("0123456789");
+        freelancerAccount.setSortCode("00-21-30");
+        freelancerAccount.setBankIdentifierCode("REVOGB21");
+        freelancerAccount.setBankAddress(defaultAddress);
+        freelancerAccount.setPricing(String.valueOf(AccBusiness.pricingFreelancer.PROFESSIONAL));
+        freelancerAccount.setBalance(20.5611111);
+        freelancerAccount.setCurrency('£');
 
         // Company Account tests
         Assert.assertEquals("0123456789", companyAccount.getAccountNumber());
@@ -54,7 +68,7 @@ public class AccountTests {
         Assert.assertEquals(AccBusiness.businessType.COMPANY, companyAccount.getcustomerType());
         Assert.assertEquals(20.56, companyAccount.getBalance(), 0);
         Assert.assertEquals('£', companyAccount.getCurrency());
-        Assert.assertEquals(AccBusiness.pricingCompany.ENTERPRISE, companyAccount.getPricing());
+        Assert.assertEquals(String.valueOf(AccBusiness.pricingCompany.ENTERPRISE), companyAccount.getPricing());
 
         // Freelancer account tests
         Assert.assertEquals("0123456789", freelancerAccount.getAccountNumber());
@@ -65,7 +79,7 @@ public class AccountTests {
         Assert.assertEquals(AccBusiness.businessType.FREELANCER, freelancerAccount.getcustomerType());
         Assert.assertEquals(20.56, freelancerAccount.getBalance(), 0);
         Assert.assertEquals('£', freelancerAccount.getCurrency());
-        Assert.assertEquals(AccBusiness.pricingFreelancer.PROFESSIONAL, freelancerAccount.getPricing());
+        Assert.assertEquals(String.valueOf(AccBusiness.pricingFreelancer.PROFESSIONAL), freelancerAccount.getPricing());
 
     }
 
