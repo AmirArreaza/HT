@@ -18,16 +18,18 @@ public class AccountTests {
 
     @Test
     public void createPersonalAccount(){
-
         AccPersonal personalAccount = new AccPersonal("","");
 
+        personalAccount.setAccountNumber("0123456789");
+        personalAccount.setSortCode("00-21-30");
+        personalAccount.setBankIdentifierCode("REVOGB21");
+        personalAccount.setBankAddress(defaultAddress);
 
         Assert.assertEquals("0123456789", personalAccount.getAccountNumber());
         Assert.assertEquals("00-21-30", personalAccount.getSortCode());
         Assert.assertEquals("HA9 0GE", personalAccount.getBankAddress().getPostCode());
         Assert.assertEquals("REVOGB21", personalAccount.getBankIdentifierCode());
     }
-
 
 
 }
