@@ -1,0 +1,33 @@
+package com.hometask.model;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class AccountTests {
+
+    Address defaultAddress;
+
+    @Before
+    public void populateDefaultValues(){
+        defaultAddress = new Address("HA9 0GE");
+        defaultAddress.setName("Flat 89 Marathon House");
+        defaultAddress.setStreet("33 Olympic way");
+        defaultAddress.setPostTown("Wembley");
+    }
+
+    @Test
+    public void createPersonalAccount(){
+
+        AccPersonal personalAccount = new AccPersonal("","");
+
+
+        Assert.assertEquals("0123456789", personalAccount.getAccountNumber());
+        Assert.assertEquals("00-21-30", personalAccount.getSortCode());
+        Assert.assertEquals("HA9 0GE", personalAccount.getBankAddress().getPostCode());
+        Assert.assertEquals("REVOGB21", personalAccount.getBankIdentifierCode());
+    }
+
+
+
+}
