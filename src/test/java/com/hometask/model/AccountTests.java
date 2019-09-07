@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class AccountTests {
 
+    @SuppressWarnings("FieldCanBeLocal")
     Address defaultAddress;
 
     @Before
