@@ -1,5 +1,7 @@
 package com.hometask.model;
 
+import java.text.DecimalFormat;
+
 public abstract class Account {
 
     /**
@@ -21,6 +23,21 @@ public abstract class Account {
      * Bank main addresss
      */
     private Address bankAddress;
+
+    /**
+     * Decimal format to allow only two decimals
+     */
+    private DecimalFormat df2 = new DecimalFormat("#.##");
+
+    /**
+     * The acocunt balance
+     */
+    private double balance;
+
+    /**
+     * Account currency
+     */
+    private char currency;
 
     /**
      *  @return the account number
@@ -83,5 +100,37 @@ public abstract class Account {
      */
     public void setBankAddress(Address bankAddress) {
         this.bankAddress = bankAddress;
+    }
+
+    /**
+     *
+     * @return account balance
+     */
+    public double getBalance() {
+        return balance;
+    }
+
+    /**
+     *
+     * @param balance to set
+     */
+    public void setBalance(double balance) {
+        this.balance = Double.parseDouble(df2.format(balance));
+    }
+
+    /**
+     *
+     * @return account currency
+     */
+    public char getCurrency() {
+        return currency;
+    }
+
+    /**
+     *
+     * @param currency account currency to set
+     */
+    public void setCurrency(char currency) {
+        this.currency = currency;
     }
 }
