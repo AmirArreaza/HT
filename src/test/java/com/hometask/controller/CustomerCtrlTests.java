@@ -1,5 +1,6 @@
 package com.hometask.controller;
 
+import com.hometask.model.AccPersonal;
 import com.hometask.model.Customer;
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,10 +20,20 @@ public class CustomerCtrlTests {
         defaultCustomer.setMobile("07380189406");
         //defaultCustomer.setAddress(defaultAddress);
     }
+
+    @Test
+    public void transferMoney(){
+
+        AccPersonal account1 = new AccPersonal("","");
+        AccPersonal account2 = new AccPersonal("","");
+        Assert.assertTrue(customerCtrl.transferMoney(account1, account2));
+
+
+    }
+
     @Test
     public void addCustomer(){
-        Customer newCustomer = new Customer();
-        Assert.assertTrue(customerCtrl.add(newCustomer));
+        Assert.assertTrue(customerCtrl.add(defaultCustomer));
     }
 
     @Test

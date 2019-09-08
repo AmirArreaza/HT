@@ -1,5 +1,6 @@
 package com.hometask.model;
 
+import java.beans.Transient;
 import java.text.DecimalFormat;
 
 public abstract class Account {
@@ -32,7 +33,7 @@ public abstract class Account {
     /**
      * The acocunt balance
      */
-    private double balance;
+    private transient double balance;
 
     /**
      * Account currency

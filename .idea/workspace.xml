@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a1310e2-4106-4c6a-b44c-3d58189807de" name="Default Changelist" comment="Task 002: Controller&#10;&#10;Added the Customer controller with failing add and edit operations">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hometask/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hometask/controller/CustomerCtrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/hometask/controller/CustomerCtrlTests.java" afterDir="false" />
+    <list default="true" id="7a1310e2-4106-4c6a-b44c-3d58189807de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hometask/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hometask/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hometask/main/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hometask/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hometask/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hometask/controller/CustomerCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hometask/controller/CustomerCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hometask/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hometask/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hometask/controller/CustomerCtrlTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hometask/controller/CustomerCtrlTests.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,23 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CustomerCtrlTests">
-    <configuration name="AccountTests.createBusinessAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Revolut" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hometask.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.hometask.model" />
-      <option name="MAIN_CLASS_NAME" value="com.hometask.model.AccountTests" />
-      <option name="METHOD_NAME" value="createBusinessAccount" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.CustomerCtrlTests.addCustomer">
     <configuration name="CustomerCtrlTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Revolut" />
       <extension name="coverage">
@@ -90,6 +73,22 @@
       <option name="PACKAGE_NAME" value="com.hometask.controller" />
       <option name="MAIN_CLASS_NAME" value="com.hometask.controller.CustomerCtrlTests" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerCtrlTests.addCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Revolut" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hometask.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hometask.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.hometask.controller.CustomerCtrlTests" />
+      <option name="METHOD_NAME" value="addCustomer" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CustomerCtrlTests.addCustomer" />
         <item itemvalue="JUnit.CustomerCtrlTests" />
         <item itemvalue="JUnit.CustomerTests.addAccountToCustomer" />
         <item itemvalue="JUnit.CustomerTests" />
         <item itemvalue="JUnit.CustomerTests.createCustomer" />
-        <item itemvalue="JUnit.AccountTests.createBusinessAccount" />
       </list>
     </recent_temporary>
   </component>
@@ -246,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567949433207</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Task 002: Controller&#10;&#10;Added the Customer controller with failing add and edit operations">
+      <created>1567951158735</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1567951158735</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
