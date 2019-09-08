@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a1310e2-4106-4c6a-b44c-3d58189807de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hometask/main/Main.java" afterDir="false" />
+    <list default="true" id="7a1310e2-4106-4c6a-b44c-3d58189807de" name="Default Changelist" comment="Task 002: Controller&#10;&#10;Added the Customer controller with failing add and edit operations">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hometask/controller/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hometask/controller/CustomerCtrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/hometask/controller/CustomerCtrlTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hometask/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hometask/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hometask/main/Main.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -28,14 +31,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1QSxnj6iyhmYhYH0ynKgplQrdA6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="copyright" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.hometask" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.hometask.model" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -49,23 +62,92 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.hometask.main.Main" />
+  <component name="RunManager" selected="JUnit.CustomerCtrlTests">
+    <configuration name="AccountTests.createBusinessAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Revolut" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.hometask.main.*" />
+          <option name="PATTERN" value="com.hometask.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.hometask.model" />
+      <option name="MAIN_CLASS_NAME" value="com.hometask.model.AccountTests" />
+      <option name="METHOD_NAME" value="createBusinessAccount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerCtrlTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Revolut" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hometask.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hometask.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.hometask.controller.CustomerCtrlTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Revolut" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hometask.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hometask.model" />
+      <option name="MAIN_CLASS_NAME" value="com.hometask.model.CustomerTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerTests.addAccountToCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Revolut" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hometask.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hometask.model" />
+      <option name="MAIN_CLASS_NAME" value="com.hometask.model.CustomerTests" />
+      <option name="METHOD_NAME" value="addAccountToCustomer" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerTests.createCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Revolut" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hometask.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hometask.model" />
+      <option name="MAIN_CLASS_NAME" value="com.hometask.model.CustomerTests" />
+      <option name="METHOD_NAME" value="createCustomer" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CustomerCtrlTests" />
+        <item itemvalue="JUnit.CustomerTests.addAccountToCustomer" />
+        <item itemvalue="JUnit.CustomerTests" />
+        <item itemvalue="JUnit.CustomerTests.createCustomer" />
+        <item itemvalue="JUnit.AccountTests.createBusinessAccount" />
       </list>
     </recent_temporary>
   </component>
@@ -80,11 +162,121 @@
       <option name="presentableId" value="Default" />
       <updated>1567777968322</updated>
     </task>
+    <task id="LOCAL-00001" summary="Approved use of spark as a mock server for the for the restful API.&#10;&#10;Including also Gson as requirement by Spark but also to use for json documents">
+      <created>1567781874987</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1567781874987</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Task 001: Models&#10;Added the abstract class user to define the type of end customer.">
+      <created>1567786257584</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1567786257584</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Task 000:&#10;Added the Java build version to the maven project to avoid compiling &#10;issues (1.8)&#10;&#10;Added the jUnit dependency for unit testing">
+      <created>1567786329426</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1567786329426</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Task 001: Models&#10;Removed the user model as it works better to differentiate the personal and business models from account rather than type of customer">
+      <created>1567857156627</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1567857156627</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Task 001: Models&#10;Added the Abstract class account to handle Personal or Business accounts&#10;&#10;Added the class personal account extending from account&#10;&#10;Added the Address object to handle addresses in general&#10;&#10;Added the tests (currently failing) to create a personal account.">
+      <created>1567861911963</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1567861911963</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Task 001: Models&#10;&#10;Create personal account test passed!">
+      <created>1567862293900</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1567862293900</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Task 001: Models&#10;&#10;Added the balance and currency to the account.&#10;&#10;Test for balance and currency assignment passed">
+      <created>1567863809121</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1567863809121</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Task 001: Models&#10;&#10;Added the business account class for Company and freelancer customers&#10;&#10;Added the tests to create a business account">
+      <created>1567865671668</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1567865671668</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Task 001: Models&#10;&#10;Business account tests passed.">
+      <created>1567866227918</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1567866227918</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Task 001: Models&#10;&#10;Customer model and tests created&#10;&#10;Suppressed the warning on local variable creations in the test file">
+      <created>1567867913180</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1567867913180</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Task 001: Models&#10;                                                                   &#10;Customer creation tests passed!">
+      <created>1567868175366</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1567868175366</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Task 001: Models&#10;                                        &#10;                                        Customer add account operation and tests">
+      <created>1567949433207</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1567949433207</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:D:/Amir Arreaza/Software/Revolut/src/main/java/com/hometask/model" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -94,5 +286,31 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Approved use of spark as a mock server for the for the restful API.&#10;&#10;Including also Gson as requirement by Spark but also to use for json documents" />
+    <MESSAGE value="Task 001: Models&#10;Added the abstract class user to define the type of end customer." />
+    <MESSAGE value="Task 000:&#10;Added the Java build version to the maven project to avoid compiling &#10;issues (1.8)&#10;&#10;Added the jUnit dependency for unit testing" />
+    <MESSAGE value="Task 001: Models&#10;Removed the user model as it works better to differentiate the personal and business models from account rather than type of customer" />
+    <MESSAGE value="Task 001: Models&#10;Added the Abstract class account to handle Personal or Business accoutns&#10;&#10;Added the class personal account extending from account&#10;&#10;Added the Address object to handle addresses in general&#10;&#10;Added the tests (currently failing) to create a personal account." />
+    <MESSAGE value="Task 001: Models&#10;Added the Abstract class account to handle Personal or Business accounts&#10;&#10;Added the class personal account extending from account&#10;&#10;Added the Address object to handle addresses in general&#10;&#10;Added the tests (currently failing) to create a personal account." />
+    <MESSAGE value="Task 001: Models&#10;&#10;Create personal account test passed!" />
+    <MESSAGE value="Task 001: Models&#10;Added the balance and currency to the account.&#10;&#10;Test for balance and currency assignment passed" />
+    <MESSAGE value="Task 001: Models&#10;                                               Added the balance and currency to the account.&#10;                                               &#10;                                               Test for balance and currency assignment passed" />
+    <MESSAGE value="Task 001: Models&#10;&#10;Added the balance and currency to the account.&#10;&#10;Test for balance and currency assignment passed" />
+    <MESSAGE value="Task 001: Models&#10;&#10;Added the business account class for Company and freelancer customers&#10;&#10;Added the tests to create a business account" />
+    <MESSAGE value="Task 001: Models&#10;&#10;Business account tests passed." />
+    <MESSAGE value="Task 001: Models&#10;&#10;Customer model and tests created" />
+    <MESSAGE value="Task 001: Models&#10;&#10;Customer model and tests created&#10;&#10;Suppressed the warning on local variable creations in the test file" />
+    <MESSAGE value="Task 001: Models&#10;                                                                   &#10;Customer creation tests passed!" />
+    <MESSAGE value="Task 001: Models&#10;&#10;Customer add account operation and tests" />
+    <MESSAGE value="Task 001: Models&#10;                                        &#10;                                        Customer add account operation and tests" />
+    <MESSAGE value="Task 002: Controller&#10;&#10;Added the Customer controller with failing add and edit operations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task 002: Controller&#10;&#10;Added the Customer controller with failing add and edit operations" />
   </component>
 </project>
