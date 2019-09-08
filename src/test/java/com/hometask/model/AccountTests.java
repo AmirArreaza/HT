@@ -26,7 +26,7 @@ public class AccountTests {
         personalAccount.setBankIdentifierCode("REVOGB21");
         personalAccount.setBankAddress(defaultAddress);
         personalAccount.settype(AccPersonal.personalTypes.METAL);
-        personalAccount.setBalance(20.5611111);
+        personalAccount.addBalance(20.5611111);
         personalAccount.setCurrency('£');
 
         Assert.assertEquals("0123456789", personalAccount.getAccountNumber());
@@ -49,7 +49,7 @@ public class AccountTests {
         companyAccount.setBankIdentifierCode("REVOGB21");
         companyAccount.setBankAddress(defaultAddress);
         companyAccount.setPricing(String.valueOf(AccBusiness.pricingCompany.ENTERPRISE));
-        companyAccount.setBalance(20.5611111);
+        companyAccount.addBalance(20.5611111);
         companyAccount.setCurrency('£');
 
         freelancerAccount.setAccountNumber("0123456789");
@@ -57,7 +57,7 @@ public class AccountTests {
         freelancerAccount.setBankIdentifierCode("REVOGB21");
         freelancerAccount.setBankAddress(defaultAddress);
         freelancerAccount.setPricing(String.valueOf(AccBusiness.pricingFreelancer.PROFESSIONAL));
-        freelancerAccount.setBalance(20.5611111);
+        freelancerAccount.addBalance(20.5611111);
         freelancerAccount.setCurrency('£');
 
         // Company Account tests
@@ -81,6 +81,13 @@ public class AccountTests {
         Assert.assertEquals(20.56, freelancerAccount.getBalance(), 0);
         Assert.assertEquals('£', freelancerAccount.getCurrency());
         Assert.assertEquals(String.valueOf(AccBusiness.pricingFreelancer.PROFESSIONAL), freelancerAccount.getPricing());
+
+        freelancerAccount.deductBalance(0.56);
+        Assert.assertEquals(20.00, freelancerAccount.getBalance(), 0);
+
+        freelancerAccount.addBalance(100.00);
+        Assert.assertEquals(120.00, freelancerAccount.getBalance(), 0);
+
 
     }
 

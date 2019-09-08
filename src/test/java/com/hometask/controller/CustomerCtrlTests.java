@@ -24,9 +24,11 @@ public class CustomerCtrlTests {
     @Test
     public void transferMoney(){
 
+        double amount = 100.00;
+
         AccPersonal account1 = new AccPersonal("","");
         AccPersonal account2 = new AccPersonal("","");
-        Assert.assertTrue(customerCtrl.transferMoney(account1, account2));
+        Assert.assertTrue(customerCtrl.transferMoney(account1, account2, amount));
 
 
     }

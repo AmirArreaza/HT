@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7a1310e2-4106-4c6a-b44c-3d58189807de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hometask/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hometask/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hometask/controller/CustomerCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hometask/controller/CustomerCtrl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hometask/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hometask/model/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/hometask/controller/CustomerCtrlTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hometask/controller/CustomerCtrlTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hometask/model/AccountTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hometask/model/AccountTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hometask/model/CustomerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hometask/model/CustomerTests.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +62,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CustomerCtrlTests.addCustomer">
+  <component name="RunManager" selected="JUnit.AccountTests.createBusinessAccount">
+    <configuration name="AccountTests.createBusinessAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Revolut" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hometask.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hometask.model" />
+      <option name="MAIN_CLASS_NAME" value="com.hometask.model.AccountTests" />
+      <option name="METHOD_NAME" value="createBusinessAccount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CustomerCtrlTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Revolut" />
       <extension name="coverage">
@@ -124,29 +141,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomerTests.createCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Revolut" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hometask.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.hometask.model" />
-      <option name="MAIN_CLASS_NAME" value="com.hometask.model.CustomerTests" />
-      <option name="METHOD_NAME" value="createCustomer" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AccountTests.createBusinessAccount" />
         <item itemvalue="JUnit.CustomerCtrlTests.addCustomer" />
         <item itemvalue="JUnit.CustomerCtrlTests" />
         <item itemvalue="JUnit.CustomerTests.addAccountToCustomer" />
         <item itemvalue="JUnit.CustomerTests" />
-        <item itemvalue="JUnit.CustomerTests.createCustomer" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567951158735</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Task 002: Controller&#10;&#10;Prioritizing money transfer operation (main scope of the home task)">
+      <created>1567952740367</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1567952740367</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -317,6 +325,7 @@
     <MESSAGE value="Task 001: Models&#10;&#10;Customer add account operation and tests" />
     <MESSAGE value="Task 001: Models&#10;                                        &#10;                                        Customer add account operation and tests" />
     <MESSAGE value="Task 002: Controller&#10;&#10;Added the Customer controller with failing add and edit operations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Task 002: Controller&#10;&#10;Added the Customer controller with failing add and edit operations" />
+    <MESSAGE value="Task 002: Controller&#10;&#10;Prioritizing money transfer operation (main scope of the home task)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task 002: Controller&#10;&#10;Prioritizing money transfer operation (main scope of the home task)" />
   </component>
 </project>

@@ -22,7 +22,7 @@ public class CustomerTests {
         defaultAccount.setBankIdentifierCode("REVOGB21");
         defaultAccount.setBankAddress(defaultAddress);
         defaultAccount.settype(AccPersonal.personalTypes.METAL);
-        defaultAccount.setBalance(20.5611111);
+        defaultAccount.addBalance(20.5611111);
         defaultAccount.setCurrency('£');
 
         defaultCustomer = new Customer();

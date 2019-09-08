@@ -113,10 +113,20 @@ public abstract class Account {
 
     /**
      *
-     * @param balance to set
+     * @param amount to add to the balance
      */
-    public void setBalance(double balance) {
-        this.balance = Double.parseDouble(df2.format(balance));
+    public void addBalance(double amount) {
+        this.balance += amount;
+        this.balance = Double.parseDouble(df2.format(this.balance));
+    }
+
+    /**
+     *
+     * @param amount to deduct from the balance
+     */
+    public void deductBalance(double amount) {
+        this.balance -= amount;
+        this.balance = Double.parseDouble(df2.format(this.balance));
     }
 
     /**

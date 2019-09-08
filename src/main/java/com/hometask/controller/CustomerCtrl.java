@@ -28,7 +28,20 @@ public class CustomerCtrl implements Controller<Customer>{
         throw new NotImplementedException();
     }
 
-    public boolean transferMoney(AccPersonal account1, AccPersonal account2) {
+    public boolean transferMoney(AccPersonal account1, AccPersonal account2, double amount) {
+
+        System.out.println(String.format("Transfering {0} from account {1} to account {2}",
+                                                                                    amount,
+                                                                                    account1.getAccountNumber(),
+                                                                                    account2.getAccountNumber()));
+        if(account1.getBalance() < amount){
+            System.out.println("Not enough money on account");
+            return false;
+        }
+
+        account1.deductBalance(amount);
+        account2.addBalance(amount);
+
 
         throw new NotImplementedException();
 
