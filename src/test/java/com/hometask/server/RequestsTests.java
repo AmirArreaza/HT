@@ -3,7 +3,6 @@ package com.hometask.server;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.hometask.controller.Controller;
 import com.hometask.controller.CustomerCtrl;
 import com.hometask.model.Account;
 import com.hometask.model.AccountAdapter;
@@ -11,16 +10,12 @@ import com.hometask.model.Customer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import spark.Spark;
 import spark.utils.IOUtils;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import static junit.framework.TestCase.fail;
