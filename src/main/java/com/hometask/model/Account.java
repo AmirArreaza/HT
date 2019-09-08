@@ -1,7 +1,6 @@
 package com.hometask.model;
 
-import java.beans.Transient;
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
 
 public abstract class Account {
 
@@ -26,14 +25,9 @@ public abstract class Account {
     private Address bankAddress;
 
     /**
-     * Decimal format to allow only two decimals
-     */
-    private DecimalFormat df2 = new DecimalFormat("#.##");
-
-    /**
      * The acocunt balance
      */
-    private transient double balance;
+    private BigDecimal balance = new BigDecimal(0);
 
     /**
      * Account currency
@@ -107,7 +101,7 @@ public abstract class Account {
      *
      * @return account balance
      */
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
@@ -116,8 +110,7 @@ public abstract class Account {
      * @param amount to add to the balance
      */
     public void addBalance(double amount) {
-        this.balance += amount;
-        this.balance = Double.parseDouble(df2.format(this.balance));
+        this.balance = this.balance.add(BigDecimal.valueOf(amount).setScale(2,BigDecimal.ROUND_HALF_EVEN));
     }
 
     /**
@@ -125,8 +118,7 @@ public abstract class Account {
      * @param amount to deduct from the balance
      */
     public void deductBalance(double amount) {
-        this.balance -= amount;
-        this.balance = Double.parseDouble(df2.format(this.balance));
+        this.balance = this.balance.add(BigDecimal.valueOf((-1) * amount).setScale(2,BigDecimal.ROUND_HALF_EVEN));
     }
 
     /**

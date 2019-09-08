@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 public class AccountTests {
 
     @SuppressWarnings("FieldCanBeLocal")
@@ -35,7 +37,10 @@ public class AccountTests {
         Assert.assertEquals("REVOGB21", personalAccount.getBankIdentifierCode());
 
         Assert.assertEquals(AccPersonal.personalTypes.METAL, personalAccount.gettype());
-        Assert.assertEquals(20.56, personalAccount.getBalance(), 0);
+
+        BigDecimal result = new BigDecimal(20.56);
+
+        Assert.assertEquals(result.toString(), personalAccount.getBalance().toString());
         Assert.assertEquals('£', personalAccount.getCurrency());
 
     }
@@ -67,7 +72,8 @@ public class AccountTests {
         Assert.assertEquals("REVOGB21", companyAccount.getBankIdentifierCode());
 
         Assert.assertEquals(AccBusiness.businessType.COMPANY, companyAccount.getcustomerType());
-        Assert.assertEquals(20.56, companyAccount.getBalance(), 0);
+
+        Assert.assertEquals("20.56", companyAccount.getBalance().toString());
         Assert.assertEquals('£', companyAccount.getCurrency());
         Assert.assertEquals(String.valueOf(AccBusiness.pricingCompany.ENTERPRISE), companyAccount.getPricing());
 
@@ -78,15 +84,16 @@ public class AccountTests {
         Assert.assertEquals("REVOGB21", freelancerAccount.getBankIdentifierCode());
 
         Assert.assertEquals(AccBusiness.businessType.FREELANCER, freelancerAccount.getcustomerType());
-        Assert.assertEquals(20.56, freelancerAccount.getBalance(), 0);
+
+        Assert.assertEquals("20.56", freelancerAccount.getBalance().toString());
         Assert.assertEquals('£', freelancerAccount.getCurrency());
         Assert.assertEquals(String.valueOf(AccBusiness.pricingFreelancer.PROFESSIONAL), freelancerAccount.getPricing());
 
         freelancerAccount.deductBalance(0.56);
-        Assert.assertEquals(20.00, freelancerAccount.getBalance(), 0);
+        Assert.assertEquals("20.00", freelancerAccount.getBalance().toString());
 
         freelancerAccount.addBalance(100.00);
-        Assert.assertEquals(120.00, freelancerAccount.getBalance(), 0);
+        Assert.assertEquals("120.00", freelancerAccount.getBalance().toString());
 
 
     }
