@@ -1,6 +1,6 @@
 package com.hometask.model;
 
-import java.util.UUID;
+import java.util.*;
 
 public class Customer {
 
@@ -35,10 +35,17 @@ public class Customer {
     private String mobile;
 
     /**
+     * Account list ordered by account number
+     */
+    private ArrayList<Account> accounts = new ArrayList<>();
+
+    /**
      * Customer constructor
      */
     public Customer(){
         this.id = UUID.randomUUID();
+
+        System.out.println("Customer id generated: " + this.id);
     }
 
     /**
@@ -127,5 +134,23 @@ public class Customer {
      */
     public void setMobile(String mobile) {
         this.mobile = mobile;
+    }
+
+    /**
+     *
+     * @return List of accounts sorted by account number
+     */
+    public ArrayList<Account> getAccounts() {
+        return accounts;
+    }
+
+    /**
+     *
+     * @param account account to add to the customer account lists
+     */
+    public void addAccount(Account account) {
+        this.getAccounts().add(account);
+        System.out.println("Account added : " + account.getAccountNumber());
+        System.out.println("Current Accounts count : " + this.getAccounts().size());
     }
 }
