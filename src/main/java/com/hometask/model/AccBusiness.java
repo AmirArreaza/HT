@@ -31,7 +31,7 @@ public class AccBusiness extends Account {
     /**
      * Account type
      */
-    private businessType customerType;
+    private businessType type;
 
     /**
      * Pricing of the account
@@ -42,12 +42,12 @@ public class AccBusiness extends Account {
      *
      * @param accountNumber account number to set
      * @param sortCode sort code of the account to set
-     * @param customerType customer account type to set
+     * @param type customer account type to set
      */
-    public AccBusiness(String accountNumber, String sortCode, businessType customerType){
+    public AccBusiness(String accountNumber, String sortCode, businessType type){
         this.setAccountNumber(accountNumber);
         this.setSortCode(sortCode);
-        this.customerType = customerType;
+        this.type = type;
     }
 
     /**
@@ -55,7 +55,7 @@ public class AccBusiness extends Account {
      * @return the account type
      */
     public businessType getcustomerType() {
-        return customerType;
+        return type;
     }
 
     /**
@@ -63,7 +63,7 @@ public class AccBusiness extends Account {
      * @param customerType Customer account type to set
      */
     public void setcustomerType(businessType customerType) {
-        this.customerType = customerType;
+        this.type = customerType;
     }
 
     /**
