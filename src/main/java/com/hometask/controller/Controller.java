@@ -12,6 +12,8 @@ public interface Controller<E> {
 
     boolean edit(E e);
 
+    E get(String id);
+
     List<E> getAll();
 
 }
