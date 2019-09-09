@@ -12,6 +12,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import spark.Response;
 import spark.utils.IOUtils;
 
 import java.io.IOException;
@@ -25,61 +26,26 @@ import static spark.Spark.*;
 
 public class RequestsTests{
 
-    private static final AccountCtrl accountCtrl = new AccountCtrl();
     private static final CustomerCtrl customerCtrl = new CustomerCtrl();
     private GsonBuilder gsonBilder;
     private Gson gson;
     private TypeToken<List<Customer>> token;
-
-    static void server(){
-        init();
-        get("/hello", (req, res) -> "Hello");
-        get("/Customers", (req, res) -> {
-            res.type("application/json");
-            res.body();
-            return new Gson().toJson(customerCtrl.getAll());
-        });
-        get("/Customer/:id", (req, res) -> {
-            res.type("application/json");
-            res.body();
-            return new Gson().toJson(customerCtrl.get(req.params("id")));
-            });
-    }
-
-    private String getBody(String route, String method){
-        try {
-            URL url = new URL("http://localhost:4567" + route);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod(method);
-            connection.setDoOutput(true);
-            connection.connect();
-            return IOUtils.toString(connection.getInputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-            fail("Sending request failed: " + e.getMessage());
-            return "";
-        }
-    }
+    Server server;
 
     @Before
     public void prepareServer(){
-        server();
+        server = new Server();
         gsonBilder = new GsonBuilder();
         gsonBilder.registerTypeAdapter(Account.class, new AccountAdapter());
         gson = gsonBilder.create();
         token = new TypeToken<List<Customer>>() {};
     }
 
-    @After
-    public void shutdownServer(){
-        stop();
-    }
-
     @Test
     public void getAllUsersRequest(){
-        String body = getBody("/Customers", "GET");
+        String[] body = server.executeService("/Customers", "GET");
 
-        List<Customer> customers = gson.fromJson(body, token.getType());
+        List<Customer> customers = gson.fromJson(body[1], token.getType());
         ArrayList<String> customerFromMemory = new ArrayList<>();
         customerCtrl.inMemoryCustomers.forEach((k,v)->{
             customerFromMemory.add(v.getId().toString());
@@ -99,11 +65,15 @@ public class RequestsTests{
     public void getCustomerRequest(){
 
         Customer customer = customerCtrl.inMemoryCustomers.firstEntry().getValue();
+        String[] conn = server.executeService("/Customer/"  + customer.getId().toString(), "GET");
+        Customer rtnCustomer = gson.fromJson(conn[1], Customer.class);
+        Assert.assertEquals(conn[0], "200");
+        Assert.assertEquals( customer.getId().toString(), rtnCustomer.getId().toString());
 
-        String body = getBody("/Customer/"  + customer.getId().toString(), "GET");
+        conn = server.executeService("/Customer/"  + "xxx", "GET");
+        Assert.assertNotEquals(conn[0], "200");
+        Assert.assertEquals(conn[0], "400");
 
-        Customer rtnCustomer = gson.fromJson(body, Customer.class);
-        Assert.assertEquals(rtnCustomer.getId(), customer.getId());
     }
 
     @Test

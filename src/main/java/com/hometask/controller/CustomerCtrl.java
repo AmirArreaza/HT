@@ -13,8 +13,10 @@ import java.util.TreeMap;
 public class CustomerCtrl implements Controller<Customer>{
 
     public static final TreeMap<String,Customer> inMemoryCustomers = new TreeMap<>();
+    private static AccountCtrl accountCtrl;
 
     public CustomerCtrl(){
+        accountCtrl = new AccountCtrl();
         populateCustomers();
     }
 
