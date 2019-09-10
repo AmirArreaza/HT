@@ -44,8 +44,6 @@ public class Customer {
      */
     public Customer(){
         this.id = UUID.randomUUID();
-
-        System.out.println("Customer id generated: " + this.id);
     }
 
     /**
@@ -150,7 +148,5 @@ public class Customer {
      */
     public void addAccount(Account account) {
         this.getAccounts().add(account);
-        System.out.println("Account added : " + account.getAccountNumber());
-        System.out.println("Current Accounts count : " + this.getAccounts().size());
     }
 }
