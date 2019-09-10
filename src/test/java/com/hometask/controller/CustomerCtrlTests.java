@@ -45,7 +45,7 @@ public class CustomerCtrlTests {
         account2.addBalance(100.00);
         account2.setCurrency('£');
 
-        Assert.assertTrue(customerCtrl.transferMoney(account1, account2, amount));
+        Assert.assertEquals(CustomerCtrl.transferResponse.SUCCESS,customerCtrl.transferMoney(account1, account2, amount));
         Assert.assertEquals("200.00", account2.getBalance().toString());
         Assert.assertEquals("100.00", account1.getBalance().toString());
         Assert.assertNotEquals("200.00", account1.getBalance().toString());
