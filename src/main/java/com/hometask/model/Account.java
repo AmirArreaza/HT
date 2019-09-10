@@ -136,4 +136,10 @@ public abstract class Account {
     public void setCurrency(char currency) {
         this.currency = currency;
     }
+
+    @Override
+    public String toString(){
+        return "Account " + this.accountNumber + " " +
+                "Current Balance " + "£" + this.balance;
+    }
 }
