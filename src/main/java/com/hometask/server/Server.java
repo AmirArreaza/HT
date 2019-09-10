@@ -65,20 +65,29 @@ public class Server {
          */
         put("/Customer/Transfer/:acc1/:acc2/:amount",(req, res) -> {
 
-            AccPersonal account1 = (AccPersonal) accountCtrl.get(req.params("acc1"));
-            AccPersonal account2 = (AccPersonal) accountCtrl.get(req.params("acc2"));
-
+            AccPersonal account1 = (AccPersonal) customerCtrl.getAccount(req.params("acc1"));
+            AccPersonal account2 = (AccPersonal) customerCtrl.getAccount(req.params("acc2"));
             if(account1 != null && account2 != null){
-                CustomerCtrl customerCtrl = new CustomerCtrl();
                 Double amount = Double.parseDouble(req.params("amount"));
-                if(customerCtrl.transferMoney(account1, account2, amount)){
-                    res.status(200);
-                    res.body(new Gson().toJson("success"));
-                }else{
-                    res.status(400);
+
+                switch (customerCtrl.transferMoney(account1, account2, amount)){
+                    case SUCCESS:
+                        res.body("success");
+                        break;
+                    case NOT_ENOUGH_MONEY:
+                        res.body("Not Enough Money");
+                        break;
+                    case ERROR:
+                        res.body("Unknown error");
+                        break;
+                    default:
+                        res.body("Error");
+                        break;
                 }
+                res.status(200);
             }else{
                 res.status(400);
+                res.body("Wrong Parameters");
             }
             return res.body();
         });
@@ -97,7 +106,7 @@ public class Server {
             if(response[0].equals("200")){
                 response[1] = IOUtils.toString(connection.getInputStream());
             }else{
-                response[1] = "400 Bad Request";
+                response[1] = "Error";
             }
             return response;
         } catch (IOException e) {
