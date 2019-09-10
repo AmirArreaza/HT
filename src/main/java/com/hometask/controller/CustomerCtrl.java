@@ -13,6 +13,7 @@ import java.util.TreeMap;
 public class CustomerCtrl implements Controller<Customer>{
 
     public static final TreeMap<String,Customer> inMemoryCustomers = new TreeMap<>();
+    public static Customer inMemoryLoggedCustomer;
     private static AccountCtrl accountCtrl;
 
     public CustomerCtrl(){
@@ -49,13 +50,17 @@ public class CustomerCtrl implements Controller<Customer>{
         return new ArrayList<>(inMemoryCustomers.values());
     }
 
+    public boolean logIn(String custId){
+        if(inMemoryCustomers.containsKey(custId)) {
+            Customer customerLoggedIn = inMemoryCustomers.get(custId);
+            inMemoryLoggedCustomer = customerLoggedIn;
+            return true;
+        }
+        return false;
+    }
+
     public boolean transferMoney(AccPersonal account1, AccPersonal account2, double amount) {
 
-        System.out.println(String.format("Transfering {3}{0} from account {1} to account {2}",
-                                                                                    amount,
-                                                                                    account1.getAccountNumber(),
-                                                                                    account2.getAccountNumber(),
-                                                                                    account1.getCurrency()));
         BigDecimal amountToTransfer = BigDecimal.valueOf(amount).setScale(2);
         if(account1.getBalance().compareTo(amountToTransfer) <= 0){
             System.out.println("Not enough money on account");
@@ -73,32 +78,53 @@ public class CustomerCtrl implements Controller<Customer>{
         Customer customer1 = new Customer();
         customer1.setFirstName("Customer 1");
         customer1.setAddress(defaultAddress);
-        customer1.addAccount(AccountCtrl.inMemoryAccounts.firstEntry().getValue());
-        AccountCtrl.inMemoryAccounts.remove(AccountCtrl.inMemoryAccounts.firstEntry().getKey());
+        customer1.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer1.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer1.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer1.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer1.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        AccountCtrl.populateAccount();
+
 
         Customer customer2 = new Customer();
         customer2.setFirstName("Customer 2");
         customer2.setAddress(defaultAddress);
-        customer2.addAccount(AccountCtrl.inMemoryAccounts.firstEntry().getValue());
-        AccountCtrl.inMemoryAccounts.remove(AccountCtrl.inMemoryAccounts.firstEntry().getKey());
+        customer2.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer2.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer2.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer2.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer2.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        AccountCtrl.populateAccount();
 
         Customer customer3 = new Customer();
         customer3.setFirstName("Customer 3");
         customer3.setAddress(defaultAddress);
-        customer3.addAccount(AccountCtrl.inMemoryAccounts.firstEntry().getValue());
-        AccountCtrl.inMemoryAccounts.remove(AccountCtrl.inMemoryAccounts.firstEntry().getKey());
+        customer3.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer3.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer3.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer3.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer3.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        AccountCtrl.populateAccount();
 
         Customer customer4 = new Customer();
         customer4.setFirstName("Customer 4");
         customer4.setAddress(defaultAddress);
-        customer4.addAccount(AccountCtrl.inMemoryAccounts.firstEntry().getValue());
-        AccountCtrl.inMemoryAccounts.remove(AccountCtrl.inMemoryAccounts.firstEntry().getKey());
+        customer4.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer4.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer4.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer4.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer4.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        AccountCtrl.populateAccount();
 
         Customer customer5 = new Customer();
         customer5.setFirstName("Customer 5");
         customer5.setAddress(defaultAddress);
-        customer5.addAccount(AccountCtrl.inMemoryAccounts.firstEntry().getValue());
-        AccountCtrl.inMemoryAccounts.remove(AccountCtrl.inMemoryAccounts.firstEntry().getKey());
+        customer5.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer5.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer5.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer5.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        customer5.addAccount(AccountCtrl.inMemoryAccounts.pollFirstEntry().getValue());
+        AccountCtrl.populateAccount();
 
         inMemoryCustomers.put(customer1.getId().toString(), customer1);
         inMemoryCustomers.put(customer2.getId().toString(), customer2);
