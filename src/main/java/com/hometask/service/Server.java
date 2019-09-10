@@ -1,10 +1,9 @@
-package com.hometask.server;
+package com.hometask.service;
 
 import com.google.gson.Gson;
 import com.hometask.controller.AccountCtrl;
 import com.hometask.controller.CustomerCtrl;
 import com.hometask.model.AccPersonal;
-import com.hometask.model.Account;
 import com.hometask.model.Customer;
 import spark.utils.IOUtils;
 
@@ -13,8 +12,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import static spark.Spark.*;
-
-
 
 public class Server {
 
@@ -44,7 +41,7 @@ public class Server {
             }
             return new Gson().toJson(customer);
         });
-        put("/CustomerLogIn/:id", (req, res) -> {
+        get("/CustomerLogIn/:id", (req, res) -> {
             req.session(true);
             res.type("application/json");
             Customer customer = customerCtrl.get(req.params("id"));
@@ -56,15 +53,7 @@ public class Server {
             }
             return res.body();
         });
-        /**
-         * REST webservice to transfer money between accounts
-         *  User id
-         *  Account origin
-         *  Account dest
-         *  amount
-         */
-        put("/Customer/Transfer/:acc1/:acc2/:amount",(req, res) -> {
-
+        get("/Customer/Transfer/:acc1/:acc2/:amount",(req, res) -> {
             AccPersonal account1 = (AccPersonal) customerCtrl.getAccount(req.params("acc1"));
             AccPersonal account2 = (AccPersonal) customerCtrl.getAccount(req.params("acc2"));
             if(account1 != null && account2 != null){
