@@ -39,6 +39,7 @@ public class AccountTests {
         Assert.assertEquals(AccPersonal.personalTypes.METAL, personalAccount.gettype());
 
         BigDecimal result = new BigDecimal(20.56);
+        result = result.setScale(2,BigDecimal.ROUND_HALF_EVEN);
 
         Assert.assertEquals(result.toString(), personalAccount.getBalance().toString());
         Assert.assertEquals('£', personalAccount.getCurrency());
