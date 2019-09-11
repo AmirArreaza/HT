@@ -20,7 +20,16 @@ Implicit requirements:
 1. The code produced by you is expected to be of high quality.
 2. There are no detailed requirements, use common sense.
 
-# Features
+## Features
 
-The following project is a REST api to handle money transfers between customer accounts.
-Build using Java 8 and Maven.
+This is a REST api to simulate a customer banking console. it features the following operations:
+
+* Money transfer between customer's accounts
+* Display customer
+* Display all customers
+* Simulate the log in of a customer
+
+
+
+
+
