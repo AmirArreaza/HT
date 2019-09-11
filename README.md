@@ -1,4 +1,4 @@
-# RevolutHT
+# Task
 
 Design and implement a RESTful API (including data model and the backing implementation) for
 money transfers between accounts.
@@ -18,3 +18,9 @@ pre-installed container/server).
 Implicit requirements:
 
 1. The code produced by you is expected to be of high quality.
+2. There are no detailed requirements, use common sense.
+
+# Features
+
+The following project is a REST api to handle money transfers between customer accounts.
+Build using Java 8 and Maven.
