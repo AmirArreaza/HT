@@ -44,13 +44,12 @@ Once it runs it will launch a server under localhost:4567 with the following ser
 
 ## How to Transfer Money
 
-The system will genarate a set of in memory users everytime is launched. 
-Each user will have a list with 5 accounts.
-By default the system will login a user to the payment console. You can change the user by executing the /CustomerLogIn service.
+The system will genarate a set of in memory users everytime is launched and each user will have a list with 5 accounts.
+By default the system will login a user to the payment console but this can changed by consuming the /CustomerLogIn service with a different customer id.
 
 To transfer money set the two account numbers and the amount to the Customer/Transfer service i.e.:
 
-** http://localhost:4567/Customer/Transfer/123456/234567/25
+* http://localhost:4567/Customer/Transfer/123456/234567/25
 
 
 
