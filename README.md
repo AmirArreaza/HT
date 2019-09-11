@@ -31,7 +31,7 @@ This is a REST api to simulate a customer banking console. it features the follo
 
 ## How to start
 
-To start the project you can run the jar file HomeTask.jar using:
+To start the project you can run the jar file out/artifacts/HomeTask_jar/HomeTask.jar using:
 
 Java -jar HomeTask.jar
 
