@@ -3,26 +3,17 @@ package com.hometask.server;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.hometask.controller.AccountCtrl;
 import com.hometask.controller.CustomerCtrl;
 import com.hometask.model.Account;
 import com.hometask.model.adapter.AccountAdapter;
 import com.hometask.model.Customer;
-import org.junit.After;
+import com.hometask.service.Server;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import spark.Response;
-import spark.utils.IOUtils;
-
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static junit.framework.TestCase.fail;
-import static spark.Spark.*;
 
 public class RequestsTests{
 
@@ -63,7 +54,6 @@ public class RequestsTests{
 
     @Test
     public void getCustomerRequest(){
-
         Customer customer = customerCtrl.inMemoryCustomers.firstEntry().getValue();
         String[] conn = server.executeService("/Customer/"  + customer.getId().toString(), "GET");
         Customer rtnCustomer = gson.fromJson(conn[1], Customer.class);
@@ -73,14 +63,30 @@ public class RequestsTests{
         conn = server.executeService("/Customer/"  + "xxx", "GET");
         Assert.assertNotEquals(conn[0], "200");
         Assert.assertEquals(conn[0], "400");
-
     }
 
     @Test
     public void transferMoneyRequest(){
 
+        Customer customer = customerCtrl.inMemoryCustomers.firstEntry().getValue();
+        String[] conn = server.executeService("/CustomerLogIn/"  + customer.getId().toString(), "GET");
 
+        Assert.assertEquals(conn[0], "200");
+        System.out.println("Customer " + customer.getFirstName() + " logged in");
 
+        String accountNumber1 = customer.getAccounts().get(0).getAccountNumber();
+        String accountNumber2 = customer.getAccounts().get(1).getAccountNumber();
+        String route = "/Customer/Transfer/" + accountNumber1 + "/" + accountNumber2 + "/" + "50";
+        conn = server.executeService(route,"GET");
+
+        Assert.assertEquals("200", conn[0]);
+        String result = "success";
+        Assert.assertEquals(result, conn[1]);
+
+        route = "/Customer/Transfer/" + accountNumber1 + "/" + accountNumber2 + "/" + "9999999999";
+        conn = server.executeService(route,"GET");
+        Assert.assertEquals("200", conn[0]);
+        Assert.assertEquals("Not Enough Money", conn[1]);
     }
 
 }
