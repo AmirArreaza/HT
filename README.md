@@ -1,4 +1,4 @@
-# RevolutHT
+# Task
 
 Design and implement a RESTful API (including data model and the backing implementation) for
 money transfers between accounts.
@@ -18,3 +18,38 @@ pre-installed container/server).
 Implicit requirements:
 
 1. The code produced by you is expected to be of high quality.
+2. There are no detailed requirements, use common sense.
+
+## Features
+
+This is a REST api to simulate a customer banking console. it features the following operations:
+
+* Money transfer between customer's accounts
+* Display customer
+* Display all customers
+* Simulate the log in of a customer
+
+## How to start
+
+To start the project you can run the jar file HomeTask.jar using:
+
+Java -jar HomeTask.jar
+
+Once it runs it will launch a server under localhost:4567 with the following services:
+
+* Get all users   (/Customers)
+* Get user        (/Customer/:id)
+* LogIn user      (/CustomerLogIn/:id)
+* Transfer Money! (/Customer/Transfer/:acc1/:acc2/:amount)
+
+## How to Transfer Money
+
+The system will genarate a set of in memory users everytime is launched and each user will have a list with 5 accounts.
+By default the system will login a user to the payment console but this can changed by consuming the /CustomerLogIn service with a different customer id.
+
+To transfer money set the two account numbers and the amount to the Customer/Transfer service e.g.:
+
+* http://localhost:4567/Customer/Transfer/123456/234567/25
+
+
+
