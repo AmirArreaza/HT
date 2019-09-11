@@ -149,4 +149,9 @@ public class Customer {
     public void addAccount(Account account) {
         this.getAccounts().add(account);
     }
+
+    @Override
+    public String toString(){
+        return this.firstName + " (" + this.id + ")";
+    }
 }
