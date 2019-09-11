@@ -27,7 +27,6 @@ public class Server {
         get("/hello", (req, res) -> "Hello");
         get("/Customers", (req, res) -> {
             res.type("application/json");
-            res.body();
             return new Gson().toJson(customerCtrl.getAll());
         });
         get("/Customer/:id", (req, res) -> {
@@ -80,6 +79,11 @@ public class Server {
             }
             return res.body();
         });
+        get("/Accounts",(req, res) ->{
+            res.type("application/json");
+            return new Gson().toJson(accountCtrl.getAll());
+        });
+
     }
 
     public String[] executeService(String route, String method){

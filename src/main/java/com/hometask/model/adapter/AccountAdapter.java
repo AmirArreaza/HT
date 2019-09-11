@@ -1,6 +1,9 @@
-package com.hometask.model;
+package com.hometask.model.adapter;
 
 import com.google.gson.*;
+import com.hometask.model.AccBusiness;
+import com.hometask.model.AccPersonal;
+import com.hometask.model.Account;
 
 import java.lang.reflect.Type;
 

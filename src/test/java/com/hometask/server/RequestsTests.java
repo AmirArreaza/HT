@@ -20,7 +20,8 @@ public class RequestsTests{
     private static final CustomerCtrl customerCtrl = new CustomerCtrl();
     private GsonBuilder gsonBilder;
     private Gson gson;
-    private TypeToken<List<Customer>> token;
+    private TypeToken<List<Customer>> customerToken;
+    private TypeToken<List<Account>> accountToken;
     Server server;
 
     @Before
@@ -29,14 +30,15 @@ public class RequestsTests{
         gsonBilder = new GsonBuilder();
         gsonBilder.registerTypeAdapter(Account.class, new AccountAdapter());
         gson = gsonBilder.create();
-        token = new TypeToken<List<Customer>>() {};
+        customerToken = new TypeToken<List<Customer>>() {};
+        accountToken = new TypeToken<List<Account>>(){};
     }
 
     @Test
     public void getAllUsersRequest(){
         String[] body = server.executeService("/Customers", "GET");
 
-        List<Customer> customers = gson.fromJson(body[1], token.getType());
+        List<Customer> customers = gson.fromJson(body[1], customerToken.getType());
         ArrayList<String> customerFromMemory = new ArrayList<>();
         customerCtrl.inMemoryCustomers.forEach((k,v)->{
             customerFromMemory.add(v.getId().toString());
@@ -89,4 +91,18 @@ public class RequestsTests{
         Assert.assertEquals("Not Enough Money", conn[1]);
     }
 
+    @Test
+    public void getAllAccountsFromUser(){
+        Customer customer = customerCtrl.inMemoryCustomers.firstEntry().getValue();
+        String[] conn = server.executeService("/CustomerLogIn/"  + customer.getId().toString(), "GET");
+
+        Assert.assertEquals(conn[0], "200");
+        System.out.println("Customer " + customer.getFirstName() + " logged in");
+
+        String[] body = server.executeService("/Accounts", "GET");
+        List<Account> accounts = gson.fromJson(body[1], accountToken.getType());
+
+        Assert.assertEquals(body[0], "200");
+        Assert.assertEquals(5, accounts.size());
+    }
 }

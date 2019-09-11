@@ -31,7 +31,7 @@ public class AccountCtrl implements Controller<Account>{
 
     @Override
     public List<Account> getAll() {
-        return null;
+        return CustomerCtrl.inMemoryLoggedCustomer.getAccounts();
     }
 
     public static void populateAccount(){
