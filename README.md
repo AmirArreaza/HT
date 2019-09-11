@@ -37,10 +37,11 @@ Java -jar HomeTask.jar
 
 Once it runs it will launch a server under localhost:4567 with the following services:
 
-* Get all users   (/Customers)
-* Get user        (/Customer/:id)
-* LogIn user      (/CustomerLogIn/:id)
-* Transfer Money! (/Customer/Transfer/:acc1/:acc2/:amount)
+* Get all users              (/Customers)
+* Get user                   (/Customer/:id)
+* LogIn user                 (/CustomerLogIn/:id)
+* Get all accounts from user (/Accounts)
+* Transfer Money!            (/Customer/Transfer/:acc1/:acc2/:amount)
 
 ## How to Transfer Money
 
