@@ -29,7 +29,28 @@ This is a REST api to simulate a customer banking console. it features the follo
 * Display all customers
 * Simulate the log in of a customer
 
+## How to start
 
+To start the project you can run the jar file HomeTask.jar using:
+
+Java -jar HomeTask.jar
+
+Once it runs it will launch a server under localhost:4567 with the following services:
+
+* Get all users   (/Customers)
+* Get user        (/Customer/:id)
+* LogIn user      (/CustomerLogIn/:id)
+* Transfer Money! (/Customer/Transfer/:acc1/:acc2/:amount)
+
+## How to Transfer Money
+
+The system will genarate a set of in memory users everytime is launched. 
+Each user will have a list with 5 accounts.
+By default the system will login a user to the payment console. You can change the user by executing the /CustomerLogIn service.
+
+To transfer money set the two account numbers and the amount to the Customer/Transfer service i.e.:
+
+** http://localhost:4567/Customer/Transfer/123456/234567/25
 
 
 
