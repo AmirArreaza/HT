@@ -1,0 +1,11 @@
++ Tests compile and pass
++ Over-engineered: the most efforts were spent to accounts (Business & Personal, tests, etc.)
++ main task is implemented
+
+- unused code or variables
+- only a happy path is tested. No corner cases are tested.
+- not good enough REST
+        get("/Customers", (req, res) -> {....});
+        get("/Customer/:id", (req, res) -> {.....}
+- no thread safety for transfers
+- no atomicity for transactions
