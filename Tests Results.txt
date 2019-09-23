@@ -9,3 +9,5 @@
         get("/Customer/:id", (req, res) -> {.....}
 - no thread safety for transfers
 - no atomicity for transactions
+
+https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
