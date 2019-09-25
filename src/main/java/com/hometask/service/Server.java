@@ -40,6 +40,18 @@ public class Server {
             }
             return new Gson().toJson(customer);
         });
+        put("/Customers/:id", (req, res) -> {
+            req.session(true);
+            res.type("application/json");
+            Customer customer = customerCtrl.get(req.params("id"));
+            if(customerCtrl.logIn(customer.getId().toString())){
+                res.body(new Gson().toJson("success"));
+                res.status(200);
+            }else{
+                res.status(400);
+            }
+            return res.body();
+        });
         get("/Accounts",(req, res) ->{
             res.type("application/json");
             return new Gson().toJson(accountCtrl.getAll());
@@ -70,18 +82,6 @@ public class Server {
                 res.body("Wrong Parameters");
             }
 
-            return res.body();
-        });
-        get("/CustomerLogIn/:id", (req, res) -> {
-            req.session(true);
-            res.type("application/json");
-            Customer customer = customerCtrl.get(req.params("id"));
-            if(customerCtrl.logIn(customer.getId().toString())){
-                res.body(new Gson().toJson("success"));
-                res.status(200);
-            }else{
-                res.status(400);
-            }
             return res.body();
         });
     }
