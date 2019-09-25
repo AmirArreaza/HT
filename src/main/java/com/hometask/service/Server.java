@@ -29,7 +29,7 @@ public class Server {
             res.type("application/json");
             return new Gson().toJson(customerCtrl.getAll());
         });
-        get("/Customer/:id", (req, res) -> {
+        get("/Customers/:id", (req, res) -> {
             res.type("application/json");
             Customer customer = customerCtrl.get(req.params("id"));
             if(customer != null){
@@ -40,24 +40,16 @@ public class Server {
             }
             return new Gson().toJson(customer);
         });
-        get("/CustomerLogIn/:id", (req, res) -> {
-            req.session(true);
+        get("/Accounts",(req, res) ->{
             res.type("application/json");
-            Customer customer = customerCtrl.get(req.params("id"));
-            if(customerCtrl.logIn(customer.getId().toString())){
-                res.body(new Gson().toJson("success"));
-                res.status(200);
-            }else{
-                res.status(400);
-            }
-            return res.body();
+            return new Gson().toJson(accountCtrl.getAll());
         });
-        get("/Customer/Transfer/:acc1/:acc2/:amount",(req, res) -> {
+        put("/Accounts/:acc1/:acc2/:amount",(req, res) ->{
+            res.type("application/json");
             AccPersonal account1 = (AccPersonal) customerCtrl.getAccount(req.params("acc1"));
             AccPersonal account2 = (AccPersonal) customerCtrl.getAccount(req.params("acc2"));
             if(account1 != null && account2 != null){
                 Double amount = Double.parseDouble(req.params("amount"));
-
                 switch (customerCtrl.transferMoney(account1, account2, amount)){
                     case SUCCESS:
                         res.body("success");
@@ -77,13 +69,21 @@ public class Server {
                 res.status(400);
                 res.body("Wrong Parameters");
             }
+
             return res.body();
         });
-        get("/Accounts",(req, res) ->{
+        get("/CustomerLogIn/:id", (req, res) -> {
+            req.session(true);
             res.type("application/json");
-            return new Gson().toJson(accountCtrl.getAll());
+            Customer customer = customerCtrl.get(req.params("id"));
+            if(customerCtrl.logIn(customer.getId().toString())){
+                res.body(new Gson().toJson("success"));
+                res.status(200);
+            }else{
+                res.status(400);
+            }
+            return res.body();
         });
-
     }
 
     public String[] executeService(String route, String method){
