@@ -11,3 +11,9 @@
 - no atomicity for transactions
 
 https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
+
+- not good enough REST
+    + Properly fixed the routes
+    + Added HATOAS
+
+
