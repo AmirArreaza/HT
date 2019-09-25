@@ -6,9 +6,11 @@ import com.hometask.controller.CustomerCtrl;
 import com.hometask.model.AccPersonal;
 import com.hometask.model.Customer;
 import spark.utils.IOUtils;
+import sun.plugin.javascript.navig.Link;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 
 import static spark.Spark.*;
@@ -34,6 +36,8 @@ public class Server {
             Customer customer = customerCtrl.get(req.params("id"));
             if(customer != null){
                 res.body(new Gson().toJson(customer));
+                customer.addLink("Customers", new URI("/Customers/"));
+                customer.addLink("Accounts", new URI("/Accounts/"));
                 res.status(200);
             }else{
                 res.status(400);
